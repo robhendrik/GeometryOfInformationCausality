@@ -10,7 +10,7 @@ Publication-style comparison of three nested regions in 3D advantage space:
     Quantum:
         c1^2 + c2^2 + c3^2 = 1
 
-    Mutual information:
+    Mutual-information:
         sum_i [1 - h2((1 + c_i)/2)] = 1
 
 The layout and camera are adapted from the existing n=3 publication figure.
@@ -43,13 +43,6 @@ SHOW_CLASSICAL = True
 SHOW_QUANTUM = True
 SHOW_MUTUAL_INFORMATION = True
 
-# -----------------------------------------------------------------------------
-# OPACITY
-# -----------------------------------------------------------------------------
-
-CLASSICAL_OPACITY = 0.20
-QUANTUM_OPACITY = 0.10
-MUTUAL_INFORMATION_OPACITY = 0.65
 
 # -----------------------------------------------------------------------------
 # OPTIONAL DETAIL
@@ -59,46 +52,6 @@ SHOW_CLASSICAL_EDGES = True
 SHOW_CLASSICAL_VERTICES = False
 SHOW_MAIN_AXES = True
 
-# -----------------------------------------------------------------------------
-# SURFACE GUIDE LINES
-# -----------------------------------------------------------------------------
-# Geographic convention: c3 is north/south; c1-c2 is the equatorial plane.
-# Available guides: equator, +/-45-degree parallels, principal N/S
-# meridians, and +/-45-degree east/west meridians.
-#
-# Configure quantum and mutual-information surfaces independently.
-
-SHOW_QUANTUM_EQUATOR = False
-SHOW_QUANTUM_PARALLELS_45 = False
-SHOW_QUANTUM_NORTH_SOUTH = False
-SHOW_QUANTUM_MERIDIANS_45_EAST_WEST = False
-
-SHOW_MI_EQUATOR = True
-SHOW_MI_PARALLELS_45 = True
-SHOW_MI_NORTH_SOUTH = True
-SHOW_MI_MERIDIANS_45_EAST_WEST = True
-
-# Latitude / longitude angles used by the extra guides.
-PARALLEL_LATITUDE_DEG = 30.0
-MERIDIAN_LONGITUDE_DEG = 45.0
-
-QUANTUM_GUIDE_COLOR = "#8A8A8A"
-QUANTUM_GUIDE_WIDTH = 1.2
-QUANTUM_GUIDE_OPACITY = 0.80
-
-MI_GUIDE_COLOR = "#B78B12"
-MI_GUIDE_WIDTH = 1.2
-MI_GUIDE_OPACITY = 0.90
-
-GUIDE_RESOLUTION = 360
-
-# Smooth-surface resolution. Increase for a denser export.
-QUANTUM_THETA_RESOLUTION = 180
-QUANTUM_PHI_RESOLUTION = 120
-
-# Number of vectorized bisection steps used to solve the mutual-information
-# radial boundary. 55 is already far beyond the visual precision required.
-MI_BISECTION_STEPS = 55
 
 
 # =============================================================================
@@ -123,15 +76,19 @@ RIGHT_AXIS_BOX = [0.625, 0.08, 0.35, 0.34]
 # Palette chosen to fit the earlier RAC figures and the n=2 comparison:
 # blue-grey classical body, warm gold quantum sphere, pale warm MI envelope.
 
-CLASSICAL_COLOR = "#AFC8D3"
-CLASSICAL_EDGE_COLOR = "#222222"
-CLASSICAL_EDGE_WIDTH = 1.5
+CLASSICAL_COLOR = "#0072B2"
+CLASSICAL_EDGE_COLOR = "#00263D"
+CLASSICAL_EDGE_WIDTH = 1.75
+CLASSICAL_OPACITY = 0.55        # innermost, solid — should read as the most "opaque" shape
 
-QUANTUM_COLOR = "#F1B733"
-QUANTUM_EDGE_COLOR = "#C69212"
+QUANTUM_COLOR = "#E69F00"
+QUANTUM_EDGE_COLOR = "#8F5E00"
+QUANTUM_OPACITY = 0.35          # middle shell — visible as a surface, not just gridlines
 
-MUTUAL_INFORMATION_COLOR = "#F4D77D"
-MUTUAL_INFORMATION_EDGE_COLOR = "#8C6B13"
+MUTUAL_INFORMATION_COLOR = "#CC79A7"
+MUTUAL_INFORMATION_EDGE_COLOR = "#6B2A52"
+MUTUAL_INFORMATION_OPACITY = 0.25   # outermost — must be the most transparent or it occludes everything inside it
+
 
 AXIS_COLORS = ("crimson", "green", "royalblue")
 AXIS_LENGTH = 1.28
@@ -150,6 +107,46 @@ MAJORITY_VERTEX_COLOR = "darkorange"
 
 BACKGROUND = "white"
 
+# -----------------------------------------------------------------------------
+# SURFACE GUIDE LINES
+# -----------------------------------------------------------------------------
+# Geographic convention: c3 is north/south; c1-c2 is the equatorial plane.
+# Available guides: equator, +/-45-degree parallels, principal N/S
+# meridians, and +/-45-degree east/west meridians.
+#
+# Configure quantum and mutual-information surfaces independently.
+
+SHOW_QUANTUM_EQUATOR = False
+SHOW_QUANTUM_PARALLELS_45 = False
+SHOW_QUANTUM_NORTH_SOUTH = False
+SHOW_QUANTUM_MERIDIANS_45_EAST_WEST = False
+
+SHOW_MI_EQUATOR = True
+SHOW_MI_PARALLELS_45 = True
+SHOW_MI_NORTH_SOUTH = True
+SHOW_MI_MERIDIANS_45_EAST_WEST = True
+
+# Latitude / longitude angles used by the extra guides.
+PARALLEL_LATITUDE_DEG = 30.0
+MERIDIAN_LONGITUDE_DEG = 45.0
+
+QUANTUM_GUIDE_COLOR = QUANTUM_EDGE_COLOR
+QUANTUM_GUIDE_WIDTH = 1.2
+QUANTUM_GUIDE_OPACITY = 0.80
+
+MI_GUIDE_COLOR = MUTUAL_INFORMATION_EDGE_COLOR
+MI_GUIDE_WIDTH = 1.2
+MI_GUIDE_OPACITY = 0.90
+
+GUIDE_RESOLUTION = 360
+
+# Smooth-surface resolution. Increase for a denser export.
+QUANTUM_THETA_RESOLUTION = 180
+QUANTUM_PHI_RESOLUTION = 120
+
+# Number of vectorized bisection steps used to solve the mutual-information
+# radial boundary. 55 is already far beyond the visual precision required.
+MI_BISECTION_STEPS = 55
 
 # =============================================================================
 # CAMERA / LIGHTING
@@ -409,7 +406,7 @@ def binary_entropy(p):
 
 def mutual_information_from_advantage(c):
     """
-    Mutual information for a uniform binary bit through a symmetric channel,
+    Mutual-information for a uniform binary bit through a symmetric channel,
 
         c = 2P - 1.
     """
@@ -842,7 +839,7 @@ def add_shape_legend(fig):
     if SHOW_MUTUAL_INFORMATION:
         rows.append((
             MUTUAL_INFORMATION_EDGE_COLOR,
-            "Mutual information",
+            "Mutual-information",
             r"$\sum_{i=1}^{3}[1-h_2((1+c_i)/2)]=1$",
         ))
 
@@ -1025,7 +1022,7 @@ def main():
     print(
         f"  classical={SHOW_CLASSICAL} (opacity={CLASSICAL_OPACITY})\n"
         f"  quantum={SHOW_QUANTUM} (opacity={QUANTUM_OPACITY})\n"
-        f"  mutual information={SHOW_MUTUAL_INFORMATION} "
+        f"  Mutual-information={SHOW_MUTUAL_INFORMATION} "
         f"(opacity={MUTUAL_INFORMATION_OPACITY})"
     )
 

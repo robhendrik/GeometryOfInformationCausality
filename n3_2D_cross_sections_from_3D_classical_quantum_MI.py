@@ -18,7 +18,7 @@ Quantum:
     cross-section of
         c1^2 + c2^2 + c3^2 = 1.
 
-Mutual information:
+Mutual-information:
     cross-section of
         sum_i [1 - h2((1+c_i)/2)] = 1.
 
@@ -116,17 +116,16 @@ LEGEND_BOX = [0.08, 0.035, 0.84, 0.075]
 # =============================================================================
 
 # Same visual family as the 3D MI figures.
-
-CLASSICAL_COLOR = "#AFC8D3"
-CLASSICAL_EDGE_COLOR = "#4B788C"
+CLASSICAL_COLOR = "#0072B2"
+CLASSICAL_EDGE_COLOR = "#00263D"
 CLASSICAL_EDGE_WIDTH = 1.6
 
-QUANTUM_COLOR = "#F1B733"
-QUANTUM_EDGE_COLOR = "#C69212"
+QUANTUM_COLOR = "#E69F00"
+QUANTUM_EDGE_COLOR = "#8F5E00"
 QUANTUM_EDGE_WIDTH = 2.0
 
-MUTUAL_INFORMATION_COLOR = "#F4D77D"
-MUTUAL_INFORMATION_EDGE_COLOR = "#8C6B13"
+MUTUAL_INFORMATION_COLOR = "#CC79A7"
+MUTUAL_INFORMATION_EDGE_COLOR = "#6B2A52"
 MUTUAL_INFORMATION_EDGE_WIDTH = 2.0
 
 AXIS_LINE_COLOR = "black"
@@ -397,7 +396,7 @@ def compute_classical_section(
 
 
 # =============================================================================
-# MUTUAL INFORMATION
+# Mutual-information
 # =============================================================================
 
 def binary_entropy(p):
@@ -789,7 +788,7 @@ def draw_panel(
         )
 
     # -------------------------------------------------------------------------
-    # Mutual information — largest region
+    # Mutual-information — largest region
     # -------------------------------------------------------------------------
 
     if SHOW_MUTUAL_INFORMATION:
@@ -1049,7 +1048,7 @@ def add_shared_legend(fig):
     if SHOW_MUTUAL_INFORMATION:
         entries.append((
             MUTUAL_INFORMATION_EDGE_COLOR,
-            r"Mutual information  "
+            r"Mutual-information  "
             r"$\sum_{i=1}^{3}[1-h_2((1+c_i)/2)]=1$",
         ))
 

@@ -19,8 +19,9 @@ For n=2 the mutual-information boundary is
     [1 - h2((1+c1)/2)] + [1 - h2((1+c2)/2)] = 1.
 
 The full sign-symmetric body is plotted. For comparison, the script also
-overlays the quantum unit circle c1^2+c2^2=1 and the classical diamond
-|c1|+|c2|=1.
+overlays the quantum unit circle c1^2+c2^2=1, the classical diamond
+|c1|+|c2|=1, and the outer no-signalling / PR-box square
+|c1|<=1, |c2|<=1.
 
 The symmetric (1,1) direction is shown only in the positive quadrant.
 The classical-majority, quantum, and mutual-information symmetric points
@@ -50,7 +51,7 @@ FIGURE_SIZE_INCH = (15.36, 10.24)
 DPI = 200
 
 LEFT_IMAGE_BOX = [0.055, 0.13, 0.60, 0.72]
-RIGHT_LEGEND_BOX = [0.69, 0.36, 0.27, 0.32]
+RIGHT_LEGEND_BOX = [0.69, 0.2, 0.27, 0.42]
 
 
 # =============================================================================
@@ -61,23 +62,29 @@ RIGHT_LEGEND_BOX = [0.69, 0.36, 0.27, 0.32]
 # warm yellow/gold outer region, muted blue-grey classical body,
 # coral majority marker, ochre quantum marker, grey diagonal.
 
-MI_FILL_COLOR = "#F7D77A"
+MI_FILL_COLOR = "#CC79A7"
 MI_FILL_ALPHA = 0.34
-MI_EDGE_COLOR = "#C89A14"
+MI_EDGE_COLOR = "#6B2A52"
 MI_EDGE_WIDTH = 2.2
 
-QUANTUM_COLOR = "#F2B632"
+QUANTUM_COLOR = "#E69F00"
 QUANTUM_WIDTH = 2.4
 
-CLASSICAL_FILL_COLOR = "#AFC3CF"
+NO_SIGNALLING_COLOR = "#555555"
+NO_SIGNALLING_WIDTH = 1.8
+NO_SIGNALLING_LINESTYLE = (0, (6, 4))
+
+
+CLASSICAL_FILL_COLOR = "#0072B2"
 CLASSICAL_FILL_ALPHA = 0.30
-CLASSICAL_COLOR = "#AAB8B5"
+CLASSICAL_COLOR = "#00263D"
 CLASSICAL_WIDTH = 2.0
 CLASSICAL_LINESTYLE = "-"
 
-MAJORITY_COLOR = "#E95A47"
-QUANTUM_POINT_COLOR = "#C69310"
-MI_POINT_COLOR = "#222222"
+MAJORITY_COLOR = "#E95A47"          # keep: specific classical strategy marker
+QUANTUM_POINT_COLOR = "#E69F00"     # same as quantum boundary
+MI_POINT_COLOR = "#6B2A52"          # same as MI edge
+NO_SIGNALLING_POINT_COLOR = "#555555"  # same as no-signalling square
 
 AXIS_COLOR = "#111111"
 AXIS_WIDTH = 1.25
@@ -116,7 +123,7 @@ def binary_entropy(p):
 
 def mutual_information_from_advantage(c):
     """
-    Mutual information for a uniform binary variable guessed through a
+    mutual-information for a uniform binary variable guessed through a
     symmetric binary channel with RAC advantage c = 2P-1.
     """
     c = np.asarray(c, dtype=float)
@@ -125,7 +132,7 @@ def mutual_information_from_advantage(c):
 
 
 def mi_sum(c1, c2):
-    """Sum of the two retrieval mutual informations."""
+    """Sum of the two retrieval mutual-informations."""
     return (
         mutual_information_from_advantage(c1)
         + mutual_information_from_advantage(c2)
@@ -201,6 +208,17 @@ def classical_diamond():
     ])
 
 
+def no_signalling_square():
+    """Outer logical/no-signalling RAC region |c1|<=1, |c2|<=1."""
+    return np.array([
+        [ 1.0,  1.0],
+        [-1.0,  1.0],
+        [-1.0, -1.0],
+        [ 1.0, -1.0],
+        [ 1.0,  1.0],
+    ])
+
+
 # =============================================================================
 # ANNOTATIONS
 # =============================================================================
@@ -241,6 +259,7 @@ def add_point_with_arrow(
             shrinkA=3,
             shrinkB=6,
             mutation_scale=ARROW_HEAD_SCALE,
+            relpos=(0.0, 0.5),
         ),
         zorder=9,
     )
@@ -256,6 +275,18 @@ def draw_main_panel(fig):
     # -------------------------------------------------------------------------
     # Full four-quadrant shapes
     # -------------------------------------------------------------------------
+
+    # Outermost logically possible / no-signalling region for the 2->1 RAC.
+    # A PR-box-type resource can reach the corners (±1, ±1).
+    ns_square = no_signalling_square()
+    ax.plot(
+        ns_square[:, 0],
+        ns_square[:, 1],
+        color=NO_SIGNALLING_COLOR,
+        linewidth=NO_SIGNALLING_WIDTH,
+        linestyle=NO_SIGNALLING_LINESTYLE,
+        zorder=3,
+    )
 
     mi_boundary = full_mi_boundary(num=1400)
 
@@ -307,8 +338,8 @@ def draw_main_panel(fig):
     # -------------------------------------------------------------------------
 
     ax.plot(
-        [0.0, 1.035],
-        [0.0, 1.035],
+        [0.0, 1.235],
+        [0.0, 1.235],
         color=DIAGONAL_COLOR,
         linewidth=DIAGONAL_WIDTH,
         linestyle=DIAGONAL_LINESTYLE,
@@ -316,7 +347,7 @@ def draw_main_panel(fig):
     )
 
     ax.text(
-        0.84, 1.00,
+        1.10, 1.10,
         "(1,1) diagonal",
         fontsize=12.2,
         color="#333333",
@@ -331,12 +362,13 @@ def draw_main_panel(fig):
     c_mi = symmetric_mi_coordinate()
     c_q = 1.0 / np.sqrt(2.0)
     c_cl = 0.5
+    c_pr = 1.0
 
     add_point_with_arrow(
         ax,
         (c_cl, c_cl),
         "majority (classical)",
-        (0.83, 0.42),
+        (1.10, 0.7),
         MAJORITY_COLOR,
     )
 
@@ -344,17 +376,25 @@ def draw_main_panel(fig):
         ax,
         (c_q, c_q),
         "quantum",
-        (0.90, 0.69),
+        (1.10, 0.80),
         QUANTUM_POINT_COLOR,
     )
 
     add_point_with_arrow(
         ax,
         (c_mi, c_mi),
-        "Mutual information",
-        (0.90, 0.89),
+        "mutual-information",
+        (1.10, 0.9),
         MI_POINT_COLOR,
     )
+
+    add_point_with_arrow(
+        ax,
+        (c_pr, c_pr),
+        "no-signalling / PR-box limit",
+        (1.10, 1.0),
+        NO_SIGNALLING_POINT_COLOR,
+        )
 
     # -------------------------------------------------------------------------
     # Axis labels
@@ -402,21 +442,28 @@ def add_legend(fig):
 
     rows = [
         (
-            0.70,
+            0.78,
+            NO_SIGNALLING_COLOR,
+            NO_SIGNALLING_LINESTYLE,
+            "No-signalling / PR-box limit",
+            r"$|c_1|\leq 1,\ |c_2|\leq 1$",
+        ),
+        (
+            0.53,
             MI_EDGE_COLOR,
             "-",
-            "Mutual information",
+            "Mutual-information",
             r"$\sum_i [1-h_2((1+c_i)/2)] = 1$",
         ),
         (
-            0.40,
+            0.28,
             QUANTUM_COLOR,
             "-",
             "Quantum",
             r"$c_1^2+c_2^2=1$",
         ),
         (
-            0.10,
+            0.03,
             CLASSICAL_COLOR,
             CLASSICAL_LINESTYLE,
             "Classical",
@@ -477,7 +524,7 @@ def compose():
     fig.text(
         0.035,
         0.915,
-        "The one-bit information-causality constraint in RAC advantage coordinates",
+        "The one-bit mutual-information constraint in RAC advantage coordinates.",
         fontsize=SUBTITLE_SIZE,
         ha="left",
         va="top",

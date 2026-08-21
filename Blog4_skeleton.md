@@ -53,15 +53,24 @@ Important conceptual distinction:
 Call this the "mutual-information bound used in Information Causality" or
 similar at this stage. Do not yet present the full Information Causality
 principle; that comes later.
+
+Quotes form papers: > “There are ways in which box worlders are better off than the inhabitants of a quantum universe … But in other ways, the box worlders are worse off.”
+
+Short & Barrett note that box worlders make communication-complexity problems trivial, yet cannot perform entanglement swapping, teleportation or dense coding. :contentReference[oaicite:0]{index=0}
+
+> “Would a box computer be even more powerful than a quantum computer? Alternatively, in view of the restricted dynamics, would it perhaps be no better than a classical computer?”
+
+— A. J. Short and J. Barrett, *Strong nonlocality: a trade-off between states and measurements*, New J. Phys. **12**, 033034 (2010). :contentReference[oaicite:1]{index=1}
 -->
 
 > **Stronger-than-quantum does not automatically mean stronger-than-causality.**
 
 <!-- Figure: Blog4_Figure_MI_n2(1).png -->
 
-*Figure 1: Classical, quantum and mutual-information boundaries for the two-bit guessing game. The classical strategies form the inner diamond and the quantum strategies reach the circle. The mutual-information bound extends beyond the quantum circle in most directions.*
 
-**Alt text:** Two-dimensional advantage-space diagram for a two-bit guessing game. A classical diamond lies inside a quantum circle, while a larger rounded mutual-information boundary surrounds the circle except where the boundaries meet along special directions.
+*Figure 1: Classical, quantum, mutual-information and no-signalling boundaries for the two-bit guessing game. Classical one-bit strategies form the inner diamond, while quantum strategies reach the circle. The mutual-information bound extends beyond the quantum circle in most directions. Farther out, the dashed square marks the no-signalling / PR-box limit in this RAC projection, where both retrieval advantages can in principle reach ±1.*
+
+**Alt text:** Two-dimensional RAC advantage-space diagram with four nested regions. A classical diamond lies inside the quantum circle. A larger rounded mutual-information boundary extends beyond the circle, while an outer dashed square marks the no-signalling / PR-box limit at |c₁| ≤ 1 and |c₂| ≤ 1. Along the positive diagonal, classical majority, quantum and mutual-information points are marked.
 
 <!-- Figure: Blog4_Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png -->
 

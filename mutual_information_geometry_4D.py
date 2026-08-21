@@ -13,7 +13,7 @@ figure, but overlays three nested regions in every panel:
         section of the 4D unit hypersphere
             c1^2 + c2^2 + c3^2 + c4^2 = 1.
 
-    Mutual information:
+    mutual-information:
         section of
             sum_i [1 - h2((1 + c_i)/2)] = 1.
 
@@ -59,14 +59,6 @@ SHOW_QUANTUM = True
 SHOW_MUTUAL_INFORMATION = True
 
 # -----------------------------------------------------------------------------
-# OPACITY
-# -----------------------------------------------------------------------------
-
-CLASSICAL_OPACITY = 0.20
-QUANTUM_OPACITY = 0.10
-MUTUAL_INFORMATION_OPACITY = 0.65
-
-# -----------------------------------------------------------------------------
 # OPTIONAL CLASSICAL DETAIL
 # -----------------------------------------------------------------------------
 
@@ -80,42 +72,7 @@ SHOW_CLASSICAL_VERTICES = False
 SHOW_MAIN_AXES = True
 SHOW_AXIS_DIRECTION_LABELS = True
 
-# -----------------------------------------------------------------------------
-# SURFACE GUIDES
-# -----------------------------------------------------------------------------
-#
-# Geographic convention is defined in EACH rendered 3D slice:
-#   slice-axis 3 = north/south
-#   slice-axes 1-2 = equatorial plane
-#
-# For the quantum section these are ordinary circles on the slice sphere.
-#
-# For the mutual-information section the same 3D slice directions are first
-# mapped back to ORIGINAL 4D advantage coordinates, then the exact MI radial
-# equality is solved there. Hence the MI guide curves deform correctly.
 
-SHOW_QUANTUM_EQUATOR = False
-SHOW_QUANTUM_PARALLELS = False
-SHOW_QUANTUM_NORTH_SOUTH = False
-SHOW_QUANTUM_MERIDIANS_EAST_WEST = False
-
-SHOW_MI_EQUATOR = True
-SHOW_MI_PARALLELS = True
-SHOW_MI_NORTH_SOUTH = True
-SHOW_MI_MERIDIANS_EAST_WEST = True
-
-PARALLEL_LATITUDE_DEG = 30.0
-MERIDIAN_LONGITUDE_DEG = 45.0
-
-QUANTUM_GUIDE_COLOR = "#8A8A8A"
-QUANTUM_GUIDE_WIDTH = 1.2
-QUANTUM_GUIDE_OPACITY = 0.80
-
-MI_GUIDE_COLOR = "#B78B12"
-MI_GUIDE_WIDTH = 1.2
-MI_GUIDE_OPACITY = 0.90
-
-GUIDE_RESOLUTION = 360
 
 # -----------------------------------------------------------------------------
 # NUMERICAL RESOLUTION
@@ -169,15 +126,18 @@ PANEL_BOXES = [
 
 # Same palette as the n=3 MI figure.
 
-CLASSICAL_COLOR = "#AFC8D3"
-CLASSICAL_EDGE_COLOR = "#222222"
-CLASSICAL_EDGE_WIDTH = 1.5
+CLASSICAL_COLOR = "#0072B2"
+CLASSICAL_EDGE_COLOR = "#00263D"
+CLASSICAL_EDGE_WIDTH = 1.75
+CLASSICAL_OPACITY = 0.55        # innermost, solid — should read as the most "opaque" shape
 
-QUANTUM_COLOR = "#F1B733"
-QUANTUM_EDGE_COLOR = "#C69212"
+QUANTUM_COLOR = "#E69F00"
+QUANTUM_EDGE_COLOR = "#8F5E00"
+QUANTUM_OPACITY = 0.35          # middle shell — visible as a surface, not just gridlines
 
-MUTUAL_INFORMATION_COLOR = "#F4D77D"
-MUTUAL_INFORMATION_EDGE_COLOR = "#8C6B13"
+MUTUAL_INFORMATION_COLOR = "#CC79A7"
+MUTUAL_INFORMATION_EDGE_COLOR = "#6B2A52"
+MUTUAL_INFORMATION_OPACITY = 0.25   # outermost — must be the most transparent or it occludes everything inside it
 
 BACKGROUND = "white"
 
@@ -202,6 +162,42 @@ LABEL_OFFSETS = [
     (-0.08,  0.00),
 ]
 
+# -----------------------------------------------------------------------------
+# SURFACE GUIDES
+# -----------------------------------------------------------------------------
+#
+# Geographic convention is defined in EACH rendered 3D slice:
+#   slice-axis 3 = north/south
+#   slice-axes 1-2 = equatorial plane
+#
+# For the quantum section these are ordinary circles on the slice sphere.
+#
+# For the mutual-information section the same 3D slice directions are first
+# mapped back to ORIGINAL 4D advantage coordinates, then the exact MI radial
+# equality is solved there. Hence the MI guide curves deform correctly.
+
+SHOW_QUANTUM_EQUATOR = False
+SHOW_QUANTUM_PARALLELS = False
+SHOW_QUANTUM_NORTH_SOUTH = False
+SHOW_QUANTUM_MERIDIANS_EAST_WEST = False
+
+SHOW_MI_EQUATOR = True
+SHOW_MI_PARALLELS = True
+SHOW_MI_NORTH_SOUTH = True
+SHOW_MI_MERIDIANS_EAST_WEST = True
+
+PARALLEL_LATITUDE_DEG = 30.0
+MERIDIAN_LONGITUDE_DEG = 45.0
+
+QUANTUM_GUIDE_COLOR = QUANTUM_EDGE_COLOR
+QUANTUM_GUIDE_WIDTH = 1.2
+QUANTUM_GUIDE_OPACITY = 0.80
+
+MI_GUIDE_COLOR = MUTUAL_INFORMATION_EDGE_COLOR
+MI_GUIDE_WIDTH = 1.2
+MI_GUIDE_OPACITY = 0.90
+
+GUIDE_RESOLUTION = 360
 
 # =============================================================================
 # CAMERA / LIGHTING
@@ -529,7 +525,7 @@ def add_oriented_axes(plotter, axis_vectors4):
 
 
 # =============================================================================
-# MUTUAL INFORMATION IN ORIGINAL 4D COORDINATES
+# mutual-information IN ORIGINAL 4D COORDINATES
 # =============================================================================
 
 def binary_entropy(p):
@@ -1032,7 +1028,7 @@ def add_shared_shape_legend(fig):
 
     if SHOW_CLASSICAL:
         entries.append((
-            "#4B788C",
+            CLASSICAL_EDGE_COLOR,
             "Classical polytope",
         ))
 
@@ -1045,7 +1041,7 @@ def add_shared_shape_legend(fig):
     if SHOW_MUTUAL_INFORMATION:
         entries.append((
             MUTUAL_INFORMATION_EDGE_COLOR,
-            r"Mutual information  "
+            r"mutual-information  "
             r"$\sum_{i=1}^{4}[1-h_2((1+c_i)/2)]=1$",
         ))
 
@@ -1171,7 +1167,7 @@ def main():
         f"(opacity={CLASSICAL_OPACITY})\n"
         f"  quantum={SHOW_QUANTUM} "
         f"(opacity={QUANTUM_OPACITY})\n"
-        f"  mutual information={SHOW_MUTUAL_INFORMATION} "
+        f"  mutual-information={SHOW_MUTUAL_INFORMATION} "
         f"(opacity={MUTUAL_INFORMATION_OPACITY})"
     )
 
