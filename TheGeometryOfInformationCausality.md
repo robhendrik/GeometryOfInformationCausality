@@ -108,7 +108,7 @@ Why should a limit on information know where quantum mechanics stops?
 
 
 
-
+[[Fig4_sketch.PNG]]
 > *Figure 4: The information-theoretic constraint tightens as the guessing game grows. Equivalent cross-sections for n = 4, 8, 16 and 32 compare the quantum boundary with the mutual-information boundary along the symmetric (1,1,…,1) direction. At every finite n there is still room beyond the quantum boundary, but a fixed correlation even slightly stronger than the quantum limit will eventually cross the information-theoretic boundary as the game is scaled up.*
 >
 > **Alt text:** Four two-dimensional cross-sections through advantage spaces for n = 4, 8, 16 and 32. Each panel shows the circular quantum boundary and the mutual-information boundary, with the positive symmetric direction (1,1,…,1) marked. As n increases, the allowed region beyond the quantum boundary becomes increasingly restrictive, illustrating that any fixed correlation strength above the quantum limit eventually violates the mutual-information bound.
