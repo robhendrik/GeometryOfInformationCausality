@@ -8,7 +8,9 @@ Alice and Bob are playing a simple guessing game: QSeaBattle. Alice sees a board
 
 It is a beautiful boundary. But this triggers the obvious question whether we can understand why Nature selected this limit.
 
-Nothing in the geometry itself says that Nature has to stop at the quantum sphere. We can imagine a hypothetical resource that pushes Alice and Bob a little farther out, giving Bob a larger advantage for several possible questions at the same time. Push this all the way to the extreme and Bob could correctly retrieve whichever bit he is asked for.
+Almost exactly a century ago, quantum mechanics arrived at this boundary from physics. Heisenberg's mechanics, Born's recognition of its matrix structure, and eventually Born's probabilistic interpretation of the wave function built the rules from which the quantum limit follows. Famously, the rule connecting amplitude to probability first appeared in Born's 1926 scattering paper as a correction added in proof: it was the square of the amplitude that mattered.
+
+However, nothing in the geometry itself says that Nature has to stop at the quantum sphere. We can imagine a hypothetical resource ('post-quantum') that pushes Alice and Bob a little farther out, giving Bob a larger advantage for several possible questions at the same time. Push this all the way to the extreme and Bob could correctly retrieve whichever bit he is asked for.
 
 For two bits, this extreme corresponds to the corners of a square in advantage space. At the corner *c₁* = *c₂* = 1, Bob could retrieve either of Alice's two bits perfectly, depending on which one he is asked for. Quantum mechanics does not come close to that corner — but, remarkably, correlations of this kind can still obey **no-signalling**. Alice cannot use them to send Bob an instantaneous message. So relativity, at least in this familiar no-faster-than-light sense, does not seem to explain why Nature stops at the quantum circle.
 
@@ -16,9 +18,9 @@ Perhaps we should therefore not ask what could exist beyond the quantum sphere, 
 
 > **Can an information-theoretical principle recover the quantum boundary?**
 
-## A Different Boundary
+## The information boundary
 
-There is another boundary we can draw. For each possible question, Bob's advantage *cᵢ* corresponds to a success probability
+Let's evaluate the game from an **information** perspective. For each possible question, Bob's advantage *cᵢ* corresponds to a success probability
 
 *Pᵢ* = ½(1 + *cᵢ*).
 
@@ -43,18 +45,24 @@ Figure 1 shows what happens for the smallest possible game, *n* = 2. The classic
 
 And now we have a surprise. The quantum circle is not the largest region compatible with this information-theoretic condition. For two bits, the mutual-information boundary visibly extends beyond it.
 
-So if information theory is going to explain why Nature selects the quantum sphere, the answer cannot be hiding in this two-bit picture alone.
-### As the game gets bigger
+So from information theory Alice and Bob could do slighltly better than allowed by quantum mechanics. If we wonder whether information theory can explain why Nature selects the quantum sphere, the answer is at least not hiding in this two-bit picture alone.
+
+## As the game gets bigger
 
 Perhaps the problem is simply that two bits are too few.
 
+![Blog4_Figure_n3_classical_quantum_mutual_information_3D.png](Blog4_Figure_n3_classical_quantum_mutual_information_3D.png)
+> *Figure 2: The same comparison in the full n = 3 advantage space. The classical strategies form a faceted polytope, the quantum boundary is a sphere, and the mutual-information condition defines a larger, distinctly non-spherical body.*
+>
+> Alt text: Three-dimensional RAC advantage-space rendering for n = 3. A faceted classical polytope sits inside a translucent quantum sphere, while a larger rounded mutual-information surface surrounds the quantum boundary in most directions. The three advantage axes c₁, c₂ and c₃ are shown.
+
 The mutual-information condition does not depend on the size of Alice's board. We can apply exactly the same rule to three bits, four bits, or many more. The difficulty is that the geometry quickly escapes our ability to see it. With three bits we get one last chance to look at the full shape before moving into higher dimensions.
 
-Figure 2 shows two cross-sections through the three-dimensional advantage space. The quantum sphere appears as a circle in each cut, while the mutual-information boundary forms a different, somewhat larger curve around it. Just as for two bits, information theory still leaves room outside the quantum boundary.
+Figure 2 shows the three-dimensional advantage space, while Figure 3 show 2D cross sections. The quantum sphere appears as a circle in each cut, while the mutual-information boundary forms a different, somewhat larger curve around it. Just as for two bits, information theory still leaves room outside the quantum boundary.
 
 ![Blog4_Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png](Blog4_Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png)
 
-> *Figure 2: Two cross-sections through the three-dimensional advantage space for n = 3. The classical polytope, quantum sphere and mutual-information boundary produce visibly different shapes. In particular, the mutual-information boundary leaves room beyond the quantum sphere at finite n.*
+> *Figure 3: Two cross-sections through the three-dimensional advantage space for n = 3. The classical polytope, quantum sphere and mutual-information boundary produce visibly different shapes. In particular, the mutual-information boundary leaves room beyond the quantum sphere at finite n.*
 >
 > Alt text: Two two-dimensional cross-sections through the n = 3 advantage space, comparing the classical polytope, the circular cross-section of the quantum sphere and the larger mutual-information boundary.
 
@@ -64,9 +72,9 @@ There is one direction that is particularly interesting: the symmetric direction
 
 The result is shown in Figure 3. At every finite size, there is still room between the quantum and mutual-information boundaries. But that room becomes increasingly restrictive as the game grows.
 
-![Blog4_Figure_scaling_cross_sections.png](Blog4_Figure_scaling_cross_sections.png)
+![Fig4_sketch](Fig4_sketch.png)
 
-> *Figure 3: The information-theoretic constraint tightens as the guessing game grows. Equivalent cross-sections for n = 4, 8, 16 and 32 compare the quantum boundary with the mutual-information boundary along the symmetric (1,1,…,1) direction. At every finite n there is still room beyond the quantum boundary, but a fixed correlation even slightly stronger than the quantum limit will eventually cross the information-theoretic boundary as the game is scaled up.*
+> *Figure 4: The information-theoretic constraint tightens as the guessing game grows. Equivalent cross-sections for n = 4, 8, 16 and 32 compare the quantum boundary with the mutual-information boundary along the symmetric (1,1,…,1) direction. At every finite n there is still room beyond the quantum boundary, but a fixed correlation even slightly stronger than the quantum limit will eventually cross the information-theoretic boundary as the game is scaled up.*
 >
 > Alt text: Four two-dimensional cross-sections through advantage spaces for n = 4, 8, 16 and 32. Each panel shows the circular quantum boundary and the mutual-information boundary, with the positive symmetric direction (1,1,…,1) marked. As n increases, the allowed region beyond the quantum boundary becomes increasingly restrictive, illustrating that any fixed correlation strength above the quantum limit eventually violates the mutual-information bound.
 
@@ -90,49 +98,33 @@ That is a remarkable result. We started with an information boundary that seemed
 
 The value that survives is precisely the quantum one.
 
-Why should a limit on information know where quantum mechanics stops?
+> **The value that survives is precisely the quantum one.**
 
-
-
-![Blog4_Figure_n3_classical_quantum_mutual_information_3D.png](Blog4_Figure_n3_classical_quantum_mutual_information_3D.png)
-> *Figure 2: Two cross-sections through the three-dimensional advantage space for n = 3. The classical polytope, quantum sphere and mutual-information boundary produce visibly different shapes. In both cuts, the mutual-information boundary leaves room beyond the quantum sphere at finite n.*
->
-> Alt text: Two two-dimensional cross-sections through the n = 3 advantage space. The left panel shows the c₁ = 0 cut; the right panel shows c₁ = c₂. Each compares a faceted classical region with the circular cross-section of the quantum sphere and a larger rounded mutual-information boundary.
-
-![Blog4_Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png](Blog4_Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png)
-> *Figure 3: The same comparison in the full n = 3 advantage space. The classical strategies form a faceted polytope, the quantum boundary is a sphere, and the mutual-information condition defines a larger, distinctly non-spherical body.*
->
-> Alt text: Three-dimensional RAC advantage-space rendering for n = 3. A faceted classical polytope sits inside a translucent quantum sphere, while a larger rounded mutual-information surface surrounds the quantum boundary in most directions. The three advantage axes c₁, c₂ and c₃ are shown.
-
-### Four Dimensions in Slices
-
-
-
-[[Fig4_sketch.PNG]]
-> *Figure 4: The information-theoretic constraint tightens as the guessing game grows. Equivalent cross-sections for n = 4, 8, 16 and 32 compare the quantum boundary with the mutual-information boundary along the symmetric (1,1,…,1) direction. At every finite n there is still room beyond the quantum boundary, but a fixed correlation even slightly stronger than the quantum limit will eventually cross the information-theoretic boundary as the game is scaled up.*
->
-> **Alt text:** Four two-dimensional cross-sections through advantage spaces for n = 4, 8, 16 and 32. Each panel shows the circular quantum boundary and the mutual-information boundary, with the positive symmetric direction (1,1,…,1) marked. As n increases, the allowed region beyond the quantum boundary becomes increasingly restrictive, illustrating that any fixed correlation strength above the quantum limit eventually violates the mutual-information bound.
 ## Why Isn’t Nature More Quantum?
 
-We can now finally give a name to the idea behind the mutual-information boundary. In 2009, Marcin Pawłowski and colleagues proposed **Information Causality** [2]. Alice may hold any number of independent bits and send Bob only a limited classical message. Bob is then free to choose which of Alice's bits he wants to guess. The principle says that the sum of the information he can obtain about those individual bits cannot exceed the information Alice actually communicated.
+We can now give a name to the idea behind the information boundary. In 2009, Marcin Pawłowski and colleagues proposed **Information Causality** [2]. Alice may hold any number of independent bits and send Bob only a limited classical message. Bob is then free to choose which bit he wants to guess. The principle says that the sum of the information available about all those possible choices cannot exceed the information Alice actually communicated.
 
-For our game, where Alice sends one bit, this becomes
+For our game, where Alice sends one bit, this is the condition we have been drawing all along,
 
 Σᵢ I(aᵢ : βᵢ) ≤ 1.
 
-At first sight, this seems to give us exactly the answer we were looking for. Classical physics respects the principle. Quantum mechanics respects it as well. But correlations stronger than quantum mechanics eventually do not.
+And we have just seen the remarkable consequence. At any fixed game size, Information Causality leaves some room outside the quantum sphere. But take any correlation strength even slightly beyond the quantum limit and keep using it to construct larger games: eventually it violates the information bound. The value that survives for arbitrarily large games is precisely
 
-The important word here is *eventually*. Suppose Alice and Bob build larger guessing games by concatenating the same basic two-bit resource. If its correlation strength is *E*, after *k* levels Bob's advantage for each individual bit becomes *Eᵏ*, while the number of possible bits has grown to *n* = 2ᵏ. At the quantum limit, *E* = 1/√2, this gives
+*E* = 1/√2.
 
-*cᵢ* = 1/√n.
+This brings us back to where we started.
 
-Choose *E* even slightly larger than 1/√2 and every individual advantage still approaches zero as the game becomes larger. But it approaches zero just a little too slowly. Eventually the accumulated mutual information exceeds one bit and Information Causality is violated [2].
+Almost a century ago, quantum mechanics reached this limit from physics. Heisenberg's new mechanics, Born's recognition of its matrix structure, and the probabilistic interpretation that followed became part of a mathematical framework of states, operators and probabilities. From that framework, the quantum limit follows.
 
-So perhaps we have our answer. Nature is not 'more quantum' because stronger correlations would eventually allow Alice and Bob to extract more information than Alice communicated.
+We have taken a completely different road. We never assumed Hilbert space, quantum operators or the Born rule. We started with a guessing game and asked how much information one communicated bit should allow Bob to obtain.
 
-But I am not completely convinced that this closes the story.
+**And we arrived at the same limiting correlation strength.**
 
-The first thing that bothers me is the sum itself. Bob never retrieves all *n* bits. He is asked for one bit, chooses the corresponding measurement, and obtains one answer. Had he been asked for another bit, he would have made another choice instead. Information Causality adds the mutual informations associated with all these alternative experiments. That is a perfectly well-defined mathematical quantity — but should we interpret it literally as the amount of information Bob *has*? Or is it better understood as the sum of what he *could have learned* under mutually exclusive choices?
+That is what makes Information Causality so intriguing. Perhaps the quantum limit is not merely an unexplained consequence of the mathematical machinery of quantum mechanics. Perhaps there is an information-theoretic reason that Nature has to stop there.
+
+But does that close the story? Maybe not completely.
+
+The first thing to wonder is whether summing the information per index for Bob is correct. Bob never retrieves all *n* bits. He is asked for one bit, chooses the corresponding measurement, and obtains one answer. Had he been asked for another bit, he would have made another choice instead. Information Causality adds the mutual informations associated with all these alternative experiments. That is a perfectly well-defined mathematical quantity — but should we interpret it literally as the amount of information Bob *has*? Or is it better understood as the sum of what he *could have learned* under mutually exclusive choices?
 
 There is also something curious about the limit in which the quantum boundary emerges. The sharp value *E* = 1/√2 is singled out as *n* becomes arbitrarily large. Yet in exactly that limit every individual advantage *cᵢ* approaches zero and Bob's success probability approaches 50%. We distinguish quantum mechanics from a slightly stronger theory by looking at more and more questions for which Bob becomes less and less able to predict the answer.
 
@@ -148,8 +140,7 @@ So, after starting with a simple guessing game, we have arrived at a question th
 
 > **But does Information Causality explain the quantum boundary — or merely describe it from another direction?**
 
-
-### References
+## References
 
 [1] V. Scarani, “Feats, Features and Failures of the PR-box,” AIP Conference Proceedings 844, 309 (2006). https://doi.org/10.1063/1.2219371
 
