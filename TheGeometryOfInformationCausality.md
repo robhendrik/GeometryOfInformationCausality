@@ -10,16 +10,23 @@ We discussed this game in previous posts and ended with a surprisingly simple re
 
 This boundary comes from physics. Behind it sits the mathematical structure of quantum mechanics: states in Hilbert space, observables represented by operators, and the Born rule that turns quantum amplitudes into probabilities. Almost exactly a century ago, Heisenberg's new mechanics, Born's recognition of its matrix structure, and the probabilistic interpretation that followed established the rules from which the quantum limit ultimately follows. Famously, Born's 1926 scattering paper first stated the probability interpretation incorrectly in the main text and corrected it in proof: it was the square of the amplitude that mattered.
 
-So quantum mechanics tells us where Nature stops. But that is not quite the same as understanding *why* it stops there.
+So quantum mechanics tells us where Nature stops. But that is not quite the same as understanding why it stops there.
 
-Nothing in the geometry alone prevents us from imagining a hypothetical post-quantum resource that pushes Alice and Bob a little farther out, giving Bob a larger advantage for several possible questions at the same time. Push this all the way to the extreme and Bob could correctly retrieve whichever bit he is asked for.
+Let us ignore quantum mechanics for a moment and imagine that, in this game, Bob can correctly guess whichever of Alice’s two bits he is asked for, with 100% certainty. In our geometry, such a resource would take us all the way to the corner c₁ = c₂ = 1.
 
-For two bits, that extreme corresponds to the corners of a square in advantage space. At *c₁* = *c₂* = 1, Bob could retrieve either of Alice's two bits perfectly, depending on which one he is asked for. Quantum mechanics does not come close to that corner — but, remarkably, correlations of this kind can still obey **no-signalling**. Alice cannot use them to send Bob an instantaneous message. So relativity, at least in this familiar no-faster-than-light sense, does not by itself explain why Nature stops at the quantum circle.
+That sounds as if we must be violating some fundamental principle. Perhaps it would require instantaneous communication, violating Einstein’s prohibition on faster-than-light communication?
 
-Perhaps we should therefore change perspective. Instead of starting from quantum physics and asking what correlations it permits, can we start from information and recover the same restriction?
+It does not. It is possible to construct hypothetical correlations that give Bob this extraordinary ability while still preventing Alice from sending him any information faster than light.
 
-> **Can an information-theoretical principle explain why Nature stops at the quantum boundary?**
+So we have a strange situation. Geometry allows it. Causality allows it. Yet Nature apparently does not.
 
+What, then, is wrong with Bob being able to know whichever bit he chooses?
+
+Perhaps the problem is not causality, but information. Alice sent only one bit. Should Bob really be able to use that one bit, together with his shared resource, to recover either of two independent bits perfectly?
+
+This suggests a different way of looking at the quantum boundary. Instead of starting from quantum physics and asking what correlations it permits, can we start from information and recover the same restriction?
+
+> **Can an information-theoretical principle explain why Nature stops at the quantum boundary?****
 ## The Information Boundary
 
 Let's forget quantum mechanics for a moment and evaluate the same game from an **information** perspective.
@@ -57,8 +64,6 @@ For two bits, Information Causality is more permissive than quantum mechanics. A
 Perhaps two bits are simply too few.
 
 ## As the Game Gets Bigger
-
-The Information Causality condition does not depend on Alice having only two bits. We can apply the same one-bit information budget to three bits, four bits, or many more.
 
 With three bits we get one last chance to see the complete geometry before it escapes into higher dimensions.
 
@@ -112,7 +117,7 @@ with ε > 0, however small. As *n* grows, the quantum value tends toward zero, a
 
 In the familiar language of analysis: **for every ε > 0, there exists an n for which information theory objects.**
 
-Pawłowski and colleagues showed something stronger still. By applying Information Causality to recursively constructed random-access codes, they found that even an arbitrarily small excess in the underlying nonlocal correlation beyond the quantum limit eventually violates the one-bit information budget [2]. The information boundary never literally becomes the finite-*n* quantum sphere, yet the strongest correlation that survives this test indefinitely is precisely the quantum one.
+This is the key result of Information Causality. Pawłowski and colleagues showed that even an arbitrarily small excess in the underlying correlation beyond the quantum limit eventually violates the one-bit information budget [2]. The information boundary never literally becomes the finite-n quantum sphere, yet the strongest correlation that survives this test for arbitrarily large games is precisely the quantum one.
 
 > **Go even slightly beyond the quantum limit, and eventually there is a guessing game large enough for information theory to object.**
 
@@ -128,11 +133,15 @@ That coincidence is the remarkable part.
 
 Perhaps Information Causality is telling us *why* Nature is not more quantum: correlations stronger than the quantum limit would eventually allow Alice and Bob to violate a fundamental information budget.
 
-But does that close the story? Maybe not completely.
+But does that close the story? Not completely.
 
-The first thing to wonder about is the sum itself. Bob never retrieves all *n* bits. He is asked for one bit, chooses the corresponding measurement, and obtains one answer. Had he been asked for another bit, he would have made another choice instead. Information Causality adds the mutual informations associated with all these alternative experiments. That is a perfectly well-defined mathematical quantity — but should we interpret it literally as the amount of information Bob *has*? Or is it better understood as the sum of what he *could have learned* under mutually exclusive choices?
+The first thing to wonder about is the information sum itself. Bob never retrieves all *n* bits. He is asked for one bit, chooses the corresponding measurement, and obtains one answer. In the quantum case, that choice matters: once he has used his shared quantum resource, he cannot go back and ask what he would have learned had he chosen another measurement instead.
 
-There is also something curious about the limit in which the quantum correlation strength emerges. The sharp result is obtained by considering arbitrarily large games. Yet in that same limit the individual guessing advantages approach zero and Bob's success probabilities approach 50%. We distinguish quantum mechanics from a slightly stronger theory through more and more questions for which Bob becomes less and less able to predict the answer.
+Information Causality nevertheless adds the mutual informations associated with all these alternative choices. In a sense, it puts all the things Bob *could* have learned into one information budget, even though he *never can* learn them simultaneously. Should we equate the information he can potentially obtain with the amount of information actually Bob has?
+
+There is also something peculiar about this limit. In advantage space, the quantum boundary remains a hypersphere of radius one. But along the symmetric direction used in the argument, that radius is spread over more and more coordinates. Bob therefore faces more and more possible questions, while his chance of correctly answering any particular one gets closer and closer to a random guess.
+
+We distinguish quantum mechanics from a slightly stronger theory precisely in this limit: more and more possible questions, each carrying less and less individual predictive power.
 
 And our geometric pictures suggest one more question. Close to *cᵢ* = 0, binary mutual information is approximately quadratic in *cᵢ*. A sum of quadratic terms naturally produces something locally spherical. So how much of the spherical geometry that appears for large games is telling us something specifically about quantum mechanics, and how much is already built into the local shape of the information measure we chose?
 
