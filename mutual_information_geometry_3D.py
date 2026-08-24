@@ -58,7 +58,7 @@ SHOW_MAIN_AXES = True
 # OUTPUT / LAYOUT
 # =============================================================================
 
-OUTPUT = Path(__file__).with_name("Figure_n3_classical_quantum_mutual_information_3D.png")
+OUTPUT = Path(__file__).with_name("Figure_2.png")
 
 FIGURE_SIZE_INCH = (15.36, 10.24)
 DPI = 200

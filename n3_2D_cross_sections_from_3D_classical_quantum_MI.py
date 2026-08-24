@@ -92,7 +92,7 @@ MI_BISECTION_STEPS = 55
 # =============================================================================
 
 OUTPUT = Path(__file__).with_name(
-    "Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png"
+    "Figure_3.png"
 )
 
 FIGURE_SIZE_INCH = (15.36, 8.7)

@@ -4,19 +4,19 @@
 
 Alice and Bob are playing a simple guessing game: QSeaBattle. Alice sees a board containing *n* bits and may send Bob one bit, while Bob is asked about one randomly chosen position. His job is simple: guess whether the bit at that position is 0 or 1.
 
-We discussed this game in previous posts and ended with a surprisingly simple result. The **classical strategy space** became more and more complicated as we increased the number of bits, but **quantum mechanics** did the opposite: it replaced that many-faced geometry with a sphere. For two bits we had a circle, for three a sphere, and in general a hypersphere,
+We discussed this game in previous posts and ended with a surprisingly simple result. The **classical strategy** became more and more complicated as we increased the number of bits, but **quantum mechanics** did the opposite: it replaced that many-faced geometry with a sphere. For two bits we had a circle, for three a sphere, and in general a hypersphere,
 
 *c₁*² + *c₂*² + ⋯ + *cₙ*² = 1.
 
-This boundary comes from physics. Behind it sits the mathematical structure of quantum mechanics: states in Hilbert space, observables represented by operators, and the Born rule that turns quantum amplitudes into probabilities. Almost exactly a century ago, Heisenberg's new mechanics, Born's recognition of its matrix structure, and the probabilistic interpretation that followed established the rules from which the quantum limit ultimately follows. Famously, Born's 1926 scattering paper first stated the probability interpretation incorrectly in the main text and corrected it in proof: it was the square of the amplitude that mattered.
+This boundary comes from physics. Behind it sits the mathematical structure of quantum mechanics: Hilbert space, operators representing observables, and the Born rule that turns quantum amplitudes into probabilities. Almost exactly a century ago, the probabilistic interpretation of the new quantum mechanics established the rules from which this quantum limit ultimately follows. Famously, Born's 1926 scattering paper initially stated the probability interpretation incorrectly and corrected it in proof: it was the square of the amplitude that mattered.
 
 So quantum mechanics tells us where Nature stops. But that is not quite the same as understanding why it stops there.
 
-Let us ignore quantum mechanics for a moment and imagine that, in this game, Bob can correctly guess whichever of Alice’s two bits he is asked for, with 100% certainty. In our geometry, such a resource would take us all the way to the corner c₁ = c₂ = 1.
+Let us ignore quantum mechanics for a moment and imagine that, in this game, Bob can correctly guess whichever of Alice’s two bits he is asked for, with 100% certainty. In our geometry, such a resource would take us all the way to the corner *c₁* = *c₂* = 1.
 
 That sounds as if we must be violating some fundamental principle. Perhaps it would require instantaneous communication, violating Einstein’s prohibition on faster-than-light communication?
 
-It does not. It is possible to construct hypothetical correlations that give Bob this extraordinary ability while still preventing Alice from sending him any information faster than light.
+It does not. It is possible to construct hypothetical correlations that give Bob this extraordinary ability while still preventing Alice from sending him any information faster than light [1].
 
 So we have a strange situation. Geometry allows it. Causality allows it. Yet Nature apparently does not.
 
@@ -26,10 +26,11 @@ Perhaps the problem is not causality, but information. Alice sent only one bit. 
 
 This suggests a different way of looking at the quantum boundary. Instead of starting from quantum physics and asking what correlations it permits, can we start from information and recover the same restriction?
 
-> **Can an information-theoretical principle explain why Nature stops at the quantum boundary?****
+> **Can an information-theoretical principle explain why Nature stops at the quantum boundary?**
+
 ## The Information Boundary
 
-Let's forget quantum mechanics for a moment and evaluate the same game from an **information** perspective.
+Now evaluate the same game from an **information** perspective.
 
 For each possible question, Bob's advantage *cᵢ* corresponds to a success probability
 
@@ -47,13 +48,15 @@ Alice sends Bob only one classical bit. Pawłowski and colleagues proposed that 
 
 They called this proposed physical principle **Information Causality**.
 
+Information Causality adds the information associated with all Bob's possible retrieval choices. Importantly, Bob does not actually make all those choices: in any one run he chooses one question and obtains one answer (in fact, once he uses his quantum resource for one measurement, he can't go back and ask what he'd have learned from another). We will return to what it means to add the information associated with these alternative possibilities.
+
 The proposal is stronger than merely using the inequality as a convenient mathematical bound. The suggestion is that Nature itself respects this information budget. So let us take the principle seriously and see what boundary it draws.
 
-![Blog4_Figure_MI_n2.png](Blog4_Figure_MI_n2.png)
+![Figure_1](Figure_1.png)
 
-> *Figure 1: Classical, quantum, Information Causality and no-signalling boundaries for the two-bit guessing game. Classical one-bit strategies form the inner diamond, while quantum strategies reach the circle. The Information Causality boundary extends beyond the quantum circle in most directions. Farther out, the dashed square marks the no-signalling / PR-box limit, where both retrieval advantages can in principle reach ±1.*
+> *Figure 1: Classical, quantum, Information Causality and perfect-retrieval boundaries for the two-bit guessing game. Classical one-bit strategies form the inner diamond, while quantum strategies reach the circle. The information boundary extends beyond the quantum circle in most directions. Farther out, the dashed square marks the perfect-retrieval limit, where both retrieval advantages can in principle reach ±1.*
 >
-> Alt text: Two-dimensional RAC advantage-space diagram with four nested regions. A classical diamond lies inside the quantum circle. A larger rounded Information Causality boundary extends beyond the circle, while an outer dashed square marks the no-signalling / PR-box limit at |c₁| ≤ 1 and |c₂| ≤ 1. Along the positive diagonal, classical majority, quantum and information-boundary points are marked.
+> Alt text: Two-dimensional RAC advantage-space diagram with four nested regions. A classical diamond lies inside the quantum circle. A larger rounded information boundary extends beyond the circle, while an outer dashed square marks the perfect-retrieval limit at |c₁| ≤ 1 and |c₂| ≤ 1. Along the positive diagonal, classical majority, quantum and information-boundary points are marked.
 
 Figure 1 combines the two perspectives in a single picture. The circle is the boundary supplied by quantum physics. The rounded shape outside it is the boundary supplied by the information principle.
 
@@ -67,7 +70,7 @@ Perhaps two bits are simply too few.
 
 With three bits we get one last chance to see the complete geometry before it escapes into higher dimensions.
 
-![Blog4_Figure_n3_classical_quantum_mutual_information_3D.png](Blog4_Figure_n3_classical_quantum_mutual_information_3D.png)
+![Figure_2](Figure_2.png)
 
 > *Figure 2: The same comparison in the full n = 3 advantage space. The classical strategies form a faceted polytope, the quantum boundary is a sphere, and Information Causality defines a larger, distinctly non-spherical body.*
 >
@@ -75,11 +78,11 @@ With three bits we get one last chance to see the complete geometry before it es
 
 Figure 2 shows the full three-dimensional advantage space. Figure 3 shows two cross-sections through it. The sphere becomes a circle in each cut, while the information boundary produces a different, somewhat larger curve. Just as for two bits, information theory still leaves room outside the quantum boundary.
 
-![Blog4_Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png](Blog4_Figure_n3_2D_cross_sections_classical_quantum_MI_symmetric.png)
+![Figure_3](Figure_3.png)
 
-> *Figure 3: Two cross-sections through the three-dimensional advantage space for n = 3. The classical polytope, quantum sphere and Information Causality boundary produce visibly different shapes. In particular, the information boundary still leaves room beyond the quantum sphere.*
+> *Figure 3: Two cross-sections through the three-dimensional advantage space for n = 3. The classical polytope, quantum sphere and information boundary produce visibly different shapes. In particular, the information boundary still leaves room beyond the quantum sphere.*
 >
-> Alt text: Two two-dimensional cross-sections through the n = 3 advantage space, comparing the classical polytope, the circular cross-section of the quantum sphere and the larger Information Causality boundary.
+> Alt text: Two two-dimensional cross-sections through the n = 3 advantage space, comparing the classical polytope, the circular cross-section of the quantum sphere and the larger information boundary.
 
 For four bits the full advantage space is already four-dimensional, so we can no longer draw it. But the cross-sections give us a way forward. We can take equivalent two-dimensional cuts through higher-dimensional shapes and watch what happens as the game grows.
 
@@ -93,29 +96,15 @@ so the quantum boundary lies at
 
 As the game grows, the quantum advantage available for each individual question therefore shrinks: 1/√2 for two bits, 1/2 for four, 1/√8 for eight, and so on.
 
-Now compare that known quantum boundary with the boundary obtained from the same one-bit information budget.
+Now compare that known quantum boundary with the information boundary obtained from the one-bit budget. The information boundary converges to a shape that touches the quantum boundary at the (1,0,0,…) axis and bulges out in the uniform (1,1,1,…) direction. The two shapes do not converge: for every *n*, Information Causality still allows some points beyond the quantum sphere.
 
-![Fig4_sketch](Fig4_sketch.png)
+![Figure_4](Figure_4.png)
 
-> *Figure 4: Quantum and Information Causality boundaries for progressively larger guessing games. Equivalent cross-sections for n = 4, 8, 16 and 32 contain the symmetric (1,1,…,1) direction. At every finite n the information boundary remains outside the quantum boundary, even as both move toward the origin as the game grows.*
+> *Figure 4: Quantum and information boundaries as the guessing game grows. Each panel shows a cross-section containing one coordinate axis and the symmetric (1,1,…,1) direction. The quantum boundary remains a circle, while the information boundary approaches a stable non-spherical shape. Along the symmetric direction their radial separation remains finite, but that radius is distributed over more coordinates as n grows, so the advantage per individual question scales as 1/√n.*
 >
-> Alt text: Four equivalent two-dimensional cross-sections through advantage spaces for n = 4, 8, 16 and 32. Each panel compares the circular quantum boundary with the larger Information Causality boundary and marks the positive symmetric direction. Both boundaries move inward as n increases, while the information boundary remains outside the quantum one at every finite game size.
+> Alt text: Four equivalent two-dimensional cross-sections for n = 2, 4, 8 and 16. Each compares the circular quantum boundary with the larger information boundary. The vertical direction represents advantage concentrated in one question, while the horizontal direction distributes advantage equally over all remaining questions. The information boundary increasingly approaches a stable rounded shape outside the quantum circle. The dashed symmetric direction rotates toward the horizontal axis as n increases; marked points show where it crosses the quantum and information boundaries.
 
-This is subtler than simply watching one boundary converge onto the other. It does not. At every finite *n*, Information Causality still allows some points beyond the quantum sphere.
-
-But both boundaries are shrinking.
-
-Take the symmetric quantum value
-
-*c* = 1/√*n*
-
-and step a fixed amount ε beyond it,
-
-*c* = 1/√*n* + ε,
-
-with ε > 0, however small. As *n* grows, the quantum value tends toward zero, and so does the Information Causality boundary. Eventually there is always a game large enough for that fixed step ε to lie outside the information boundary.
-
-In the familiar language of analysis: **for every ε > 0, there exists an n for which information theory objects.**
+Why do larger games become sensitive? Along the symmetric direction, both boundaries sit at a radius that barely moves as *n* grows: the quantum radius stays exactly 1, the information radius approaches about √(2 ln 2) ≈ 1.177. So in absolute terms the two stay roughly the same distance apart, however large the game gets. But that fixed gap is shared out over more and more bits as *n* grows — so the amount of extra advantage allowed per bit keeps shrinking. A correlation only slightly stronger than the quantum one can look harmless when there are just two bits to spread it over, yet when that same slight excess is repeatedly used to construct larger games, its advantage eventually carries us across the information boundary. In the familiar language of analysis: **for every ε > 0, there exists an *n* for which information theory objects if we take the strength of the correlation to exceed the highest quantum value by ε.**
 
 This is the key result of Information Causality. Pawłowski and colleagues showed that even an arbitrarily small excess in the underlying correlation beyond the quantum limit eventually violates the one-bit information budget [2]. The information boundary never literally becomes the finite-n quantum sphere, yet the strongest correlation that survives this test for arbitrarily large games is precisely the quantum one.
 
@@ -137,13 +126,9 @@ But does that close the story? Not completely.
 
 The first thing to wonder about is the information sum itself. Bob never retrieves all *n* bits. He is asked for one bit, chooses the corresponding measurement, and obtains one answer. In the quantum case, that choice matters: once he has used his shared quantum resource, he cannot go back and ask what he would have learned had he chosen another measurement instead.
 
-Information Causality nevertheless adds the mutual informations associated with all these alternative choices. In a sense, it puts all the things Bob *could* have learned into one information budget, even though he *never can* learn them simultaneously. Should we equate the information he can potentially obtain with the amount of information actually Bob has?
+Information Causality nevertheless adds the mutual informations associated with all these alternative choices. In a sense, it puts all the things Bob *could* have learned into one information budget, even though he *never can* learn them simultaneously. Should we interpret this sum as the amount of information Bob actually has — or as a measure of what he could have learned under mutually exclusive choices?
 
-There is also something peculiar about this limit. In advantage space, the quantum boundary remains a hypersphere of radius one. But along the symmetric direction used in the argument, that radius is spread over more and more coordinates. Bob therefore faces more and more possible questions, while his chance of correctly answering any particular one gets closer and closer to a random guess.
-
-We distinguish quantum mechanics from a slightly stronger theory precisely in this limit: more and more possible questions, each carrying less and less individual predictive power.
-
-And our geometric pictures suggest one more question. Close to *cᵢ* = 0, binary mutual information is approximately quadratic in *cᵢ*. A sum of quadratic terms naturally produces something locally spherical. So how much of the spherical geometry that appears for large games is telling us something specifically about quantum mechanics, and how much is already built into the local shape of the information measure we chose?
+There is also something peculiar about this limit. In advantage space, the quantum boundary remains a hypersphere of radius one. Along the symmetric direction the information boundary approaches radius √(2 ln 2) (≈1.177, as we saw). When *n* grows the advantage as well as the difference is distributed over more and more indices, making the value for each index approach zero. We distinguish quantum mechanics from a slightly stronger theory in a curious limit: Bob faces more and more possible questions, while his chance of correctly answering any particular one gets closer and closer to a random guess.
 
 None of this makes Information Causality less remarkable. One route begins with the physical and mathematical structure of quantum mechanics. The other begins with a proposed principle about information. Yet both single out the same limiting correlation strength.
 
@@ -160,8 +145,7 @@ So, after starting with a simple guessing game, we have arrived at a question th
 > **Does Information Causality explain the quantum boundary — or merely find the same limit from another direction?**
 
 ## References
-
-[1] V. Scarani, “Feats, Features and Failures of the PR-box,” *AIP Conference Proceedings* **844**, 309 (2006). https://doi.org/10.1063/1.2219371
+[1] S. Popescu and D. Rohrlich, "Quantum Nonlocality as an Axiom," *Foundations of Physics* **24**, 379–385 (1994). https://doi.org/10.1007/BF02058098
 
 [2] M. Pawłowski, T. Paterek, D. Kaszlikowski, V. Scarani, A. Winter and M. Żukowski, “Information Causality as a Physical Principle,” *Nature* **461**, 1101–1104 (2009). https://doi.org/10.1038/nature08400
 
@@ -170,3 +154,6 @@ So, after starting with a simple guessing game, we have arrived at a question th
 [4] G. Brassard, H. Buhrman, N. Linden, A. A. Méthot, A. Tapp and F. Unger, “Limit on Nonlocality in Any World in Which Communication Complexity Is Not Trivial,” *Physical Review Letters* **96**, 250401 (2006). https://doi.org/10.1103/PhysRevLett.96.250401
 
 [5] M. Navascués and H. Wunderlich, “A Glance Beyond the Quantum Model,” *Proceedings of the Royal Society A* **466**, 881–890 (2010). https://doi.org/10.1098/rspa.2009.0453
+
+![QSeaBattleBanner](QSeaBattleBanner.png)
+> *[QSeaBattle is on Github](https://robhendrik.github.io/QSeaBattle/)*

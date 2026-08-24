@@ -20,7 +20,7 @@ For n=2 the mutual-information boundary is
 
 The full sign-symmetric body is plotted. For comparison, the script also
 overlays the quantum unit circle c1^2+c2^2=1, the classical diamond
-|c1|+|c2|=1, and the outer no-signalling / PR-box square
+|c1|+|c2|=1, and the outer perfect-retrieval
 |c1|<=1, |c2|<=1.
 
 The symmetric (1,1) direction is shown only in the positive quadrant.
@@ -45,7 +45,7 @@ from scipy.optimize import brentq
 # OUTPUT / LAYOUT
 # =============================================================================
 
-OUTPUT = Path(__file__).with_name("Figure_MI_n2.png")
+OUTPUT = Path(__file__).with_name("Figure_1.png")
 
 FIGURE_SIZE_INCH = (15.36, 10.24)
 DPI = 200
@@ -84,7 +84,7 @@ CLASSICAL_LINESTYLE = "-"
 MAJORITY_COLOR = "#E95A47"          # keep: specific classical strategy marker
 QUANTUM_POINT_COLOR = "#E69F00"     # same as quantum boundary
 MI_POINT_COLOR = "#6B2A52"          # same as MI edge
-NO_SIGNALLING_POINT_COLOR = "#555555"  # same as no-signalling square
+NO_SIGNALLING_POINT_COLOR = "#555555"  # same as perfect-retrieval square
 
 AXIS_COLOR = "#111111"
 AXIS_WIDTH = 1.25
@@ -209,7 +209,7 @@ def classical_diamond():
 
 
 def no_signalling_square():
-    """Outer logical/no-signalling RAC region |c1|<=1, |c2|<=1."""
+    """Perfect-retrieval RAC region |c1|<=1, |c2|<=1."""
     return np.array([
         [ 1.0,  1.0],
         [-1.0,  1.0],
@@ -276,7 +276,7 @@ def draw_main_panel(fig):
     # Full four-quadrant shapes
     # -------------------------------------------------------------------------
 
-    # Outermost logically possible / no-signalling region for the 2->1 RAC.
+    # Outermost logically possible / perfect-retrieval region for the 2->1 RAC.
     # A PR-box-type resource can reach the corners (±1, ±1).
     ns_square = no_signalling_square()
     ax.plot(
@@ -391,7 +391,7 @@ def draw_main_panel(fig):
     add_point_with_arrow(
         ax,
         (c_pr, c_pr),
-        "no-signalling / PR-box limit",
+        "perfect-retrieval limit",
         (1.10, 1.0),
         NO_SIGNALLING_POINT_COLOR,
         )
@@ -445,7 +445,7 @@ def add_legend(fig):
             0.78,
             NO_SIGNALLING_COLOR,
             NO_SIGNALLING_LINESTYLE,
-            "No-signalling / PR-box limit",
+            "perfect-retrieval limit",
             r"$|c_1|\leq 1,\ |c_2|\leq 1$",
         ),
         (
