@@ -11,10 +11,14 @@
             "id": "6555127ddde47751",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "TheGeometryOfInformationCausality.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nieuw tabblad"
+              "title": "TheGeometryOfInformationCausality"
             }
           }
         ]
@@ -113,6 +117,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "TheGeometryOfInformationCausality.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -166,6 +171,32 @@
       "bases:Nieuwe basis maken": false
     }
   },
-  "active": "6555127ddde47751",
-  "lastOpenFiles": []
+  "active": "aea3839c12f73487",
+  "lastOpenFiles": [
+    "QSeaBattleBanner.png",
+    "blog4_information_boundary_tightens.py",
+    "Figure_2.png",
+    "Figure_3.png",
+    "Figure_1.png",
+    "Figure_4.png",
+    "blog4_information_boundary_with_postquantum_curves.py",
+    "Figure_4_including_postquantum_curves.png",
+    "TheGeometryOfInformationCausality.md",
+    "Naamloos.md",
+    "Naamloos",
+    "Fig4_sketch.PNG",
+    "Blog4_Figure_n4_classical_quantum_mutual_information_cross_sections.png",
+    "rac_n2_posteriors.png",
+    "Blog4_Figure_n3_classical_quantum_mutual_information_3D.png",
+    "Blog4_Figure_MI_n2.png",
+    "working_notes_at_start.md",
+    "Blog4_skeleton.md",
+    "rac_n2_bloch_posterior_visualizer.py",
+    "n4_rac_cross_section_axis_inset_planar_edges.py",
+    "mutual_information_geometry_4D.py",
+    "mutual_information_geometry_2D.py",
+    "mutual_information_geometry_3D.py",
+    "__pycache__/n4_rac_cross_section_axis_inset_planar_edges.cpython-312.pyc",
+    "__pycache__"
+  ]
 }
