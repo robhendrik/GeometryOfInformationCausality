@@ -54,7 +54,7 @@ The proposal is stronger than merely using the inequality as a convenient mathem
 
 ![Figure_1](Figure_1.png)
 
-> *Figure 1: Classical, quantum, Information Causality and perfect-retrieval boundaries for the two-bit guessing game. Classical one-bit strategies form the inner diamond, while quantum strategies reach the circle. The information boundary extends beyond the quantum circle in most directions. Farther out, the dashed square marks the perfect-retrieval limit, where both retrieval advantages can in principle reach ±1.*
+> *Figure 1: Classical, quantum, Information Causality and perfect-retrieval boundaries for the two-bit guessing game. Classical one-bit strategies form the inner diamond, while quantum strategies reach the circle. The information boundary extends beyond the quantum circle in most directions. Farther out, the dashed square marks the perfect-retrieval limit, where both retrieval advantages can in principle reach ±1. Image by author.*
 >
 > Alt text: Two-dimensional RAC advantage-space diagram with four nested regions. A classical diamond lies inside the quantum circle. A larger rounded information boundary extends beyond the circle, while an outer dashed square marks the perfect-retrieval limit at |c₁| ≤ 1 and |c₂| ≤ 1. Along the positive diagonal, classical majority, quantum and information-boundary points are marked.
 
@@ -72,7 +72,7 @@ With three bits we get one last chance to see the complete geometry before it es
 
 ![Figure_2](Figure_2.png)
 
-> *Figure 2: The same comparison in the full n = 3 advantage space. The classical strategies form a faceted polytope, the quantum boundary is a sphere, and Information Causality defines a larger, distinctly non-spherical body.*
+> *Figure 2: The same comparison in the full n = 3 advantage space. The classical strategies form a faceted polytope, the quantum boundary is a sphere, and Information Causality defines a larger, distinctly non-spherical body. Image by author*
 >
 > Alt text: Three-dimensional RAC advantage-space rendering for n = 3. A faceted classical polytope sits inside a translucent quantum sphere, while a larger rounded Information Causality surface surrounds the quantum boundary in most directions. The three advantage axes c₁, c₂ and c₃ are shown.
 
@@ -80,7 +80,7 @@ Figure 2 shows the full three-dimensional advantage space. Figure 3 shows two cr
 
 ![Figure_3](Figure_3.png)
 
-> *Figure 3: Two cross-sections through the three-dimensional advantage space for n = 3. The classical polytope, quantum sphere and information boundary produce visibly different shapes. In particular, the information boundary still leaves room beyond the quantum sphere.*
+> *Figure 3: Two cross-sections through the three-dimensional advantage space for n = 3. The classical polytope, quantum sphere and information boundary produce visibly different shapes. In particular, the information boundary still leaves room beyond the quantum sphere. Image by author.*
 >
 > Alt text: Two two-dimensional cross-sections through the n = 3 advantage space, comparing the classical polytope, the circular cross-section of the quantum sphere and the larger information boundary.
 
@@ -100,7 +100,7 @@ Now compare that known quantum boundary with the information boundary obtained f
 
 ![Figure_4](Figure_4.png)
 
-> *Figure 4: Quantum and information boundaries as the guessing game grows. Each panel shows a cross-section containing one coordinate axis and the symmetric (1,1,…,1) direction. The quantum boundary remains a circle, while the information boundary approaches a stable non-spherical shape. Along the symmetric direction their radial separation remains finite, but that radius is distributed over more coordinates as n grows, so the advantage per individual question scales as 1/√n.*
+> *Figure 4: Quantum and information boundaries as the guessing game grows. Each panel shows a cross-section containing one coordinate axis and the symmetric (1,1,…,1) direction. The quantum boundary remains a circle, while the information boundary approaches a stable non-spherical shape. Along the symmetric direction their radial separation remains finite, but that radius is distributed over more coordinates as n grows, so the advantage per individual question scales as 1/√n. Image by author.*
 >
 > Alt text: Four equivalent two-dimensional cross-sections for n = 2, 4, 8 and 16. Each compares the circular quantum boundary with the larger information boundary. The vertical direction represents advantage concentrated in one question, while the horizontal direction distributes advantage equally over all remaining questions. The information boundary increasingly approaches a stable rounded shape outside the quantum circle. The dashed symmetric direction rotates toward the horizontal axis as n increases; marked points show where it crosses the quantum and information boundaries.
 
