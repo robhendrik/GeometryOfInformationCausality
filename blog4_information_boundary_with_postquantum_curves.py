@@ -557,28 +557,52 @@ def draw_panel(ax, n):
     # -------------------------------------------------------------------------
 
     # Vertical axis — horizontal label above it.
-    ax.text(
-        0.0,
-        axis_extent * 1.025,
-        r"$(1,0,\ldots,0)$",
-        fontsize=AXIS_LABEL_SIZE,
-        color="black",
-        ha="center",
-        va="bottom",
-        zorder=14,
-    )
+    if n == 2:
+        ax.text(
+                0.0,
+                axis_extent * 1.025,
+                r"$(1,0)$",
+                fontsize=AXIS_LABEL_SIZE,
+                color="black",
+                ha="center",
+                va="bottom",
+                zorder=14,
+            )
+    else:
+        ax.text(
+            0.0,
+            axis_extent * 1.025,
+            r"$(1,0,\ldots,0)$",
+            fontsize=AXIS_LABEL_SIZE,
+            color="black",
+            ha="center",
+            va="bottom",
+            zorder=14,
+        )
 
     # Horizontal axis.
-    ax.text(
-        axis_extent * 1.025,
-        0.0,
-        r"$(0,1,\ldots,1)$",
-        fontsize=AXIS_LABEL_SIZE,
-        color="black",
-        ha="left",
-        va="center",
-        zorder=14,
-    )
+    if n == 2:
+        ax.text(
+                axis_extent * 1.025,
+                0.0,
+                r"$(0,1)$",
+                fontsize=AXIS_LABEL_SIZE,
+                color="black",
+                ha="left",
+                va="center",
+                zorder=14,
+            )
+    else:
+        ax.text(
+            axis_extent * 1.025,
+            0.0,
+            r"$(0,1,\ldots,1)$",
+            fontsize=AXIS_LABEL_SIZE,
+            color="black",
+            ha="left",
+            va="center",
+            zorder=14,
+        )
 
     # Symmetric direction.
     label_r = 0.88 * max(
